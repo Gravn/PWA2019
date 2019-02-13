@@ -33,17 +33,20 @@ self.addEventListener('activate', e =>
     e.waitUntil(
         caches.keys().then(cacheNames => 
         {
-            return Promise.all(cacheNames.map(cache => 
-            {
-                if(cache !== cacheName)
+            return Promise.all
+            (cacheNames.map(
+                cache => 
                 {
-                    console.log('Service Worker: Clearing Old Cache');
-                    return caches.delete(cache);
-                }
-            }))
+                    if(cache !== cacheName)
+                    {
+                        console.log('Service Worker: Clearing Old Cache');
+                        return caches.delete(cache);
+                    }
+                })
+            );
         })
     );
-})
+});
 
 //Call Fetch Event
 self.addEventListener('fetch', e => 
@@ -51,6 +54,7 @@ self.addEventListener('fetch', e =>
     console.log('Service Worker: Fetching cache');
     e.respondWith
     (
-        fetch(e.request).catch(() => caches.match(e.request))
+        fetch(e.request)
+        .catch(() => caches.match(e.request))
     )
 })
