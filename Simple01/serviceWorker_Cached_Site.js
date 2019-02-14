@@ -12,7 +12,8 @@ self.addEventListener('activate', e =>
 {
     console.log('Service Worker: Activated');
     //Remove old caches
-    e.waitUntil(
+    e.waitUntil
+    (
         caches.keys().then(cacheNames => 
         {
             return Promise.all(cacheNames.map(cache => 
@@ -27,7 +28,7 @@ self.addEventListener('activate', e =>
     );
 })
 
-//Call Fetch Event
+//Call Fetch Event, Network, falling back to cache with frequent updates(updating cache if network avaliable)
 self.addEventListener('fetch', e => 
 {
     console.log('Service Worker: Fetching cache');
