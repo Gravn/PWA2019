@@ -6,9 +6,9 @@ if ('serviceWorker' in navigator)
     window.addEventListener('load', () => 
     { 
         navigator.serviceWorker
-        .register('../serviceWorker_Cached_Pages.js')
-        .then(reg => console.log('Service Worker: Registered'))
-        .catch(err => console.log(`Service Worker: Error ${err}`))
+        .register('../serviceWorker_Cached_Site.js')
+        .then(reg => console.log('Service Worker: Registered (Site)'))
+        .catch(err => console.log(`Service Worker: Error ${err}`));
     });
 }
 else

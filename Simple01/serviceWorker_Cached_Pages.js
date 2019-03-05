@@ -1,9 +1,9 @@
 //Caching specific pages
-const cacheName = 'Simple01V1';
+const cacheName = 'Simple01V2';
 const cacheAssets =
     [
         'index.html',
-        '/css/style.css',
+        '/css/simpleStyle01.css',
         '/js/main.js'
     ];
 

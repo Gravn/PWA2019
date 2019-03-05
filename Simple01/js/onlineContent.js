@@ -1,1 +1,1 @@
-document.getElementById('dynamicContent').innerHTML = "Online only";
+document.getElementById('OnlineEntry01').innerHTML = "Online only";
